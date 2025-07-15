@@ -1,7 +1,7 @@
 #include <iostream>
 int main()
 {
-    int *a = new int();
+    float *a = new float();
     std::cout << a << "   "<< *a;
 
 }

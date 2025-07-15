@@ -19,14 +19,27 @@ public:
     Array &operator=(Array const &other);
     ~Array();
 
-    T *getArray() const;
-    unsigned int getSize() const;
+    unsigned int size() const;
+
+    T &operator[](unsigned int i);
+    const T &operator[](unsigned int i) const;
+
+    class OutOfBoundsException : public std::exception
+    {
+    public:
+        virtual const char *what() const throw()
+        {
+            return "Index is out of bounds";
+        }
+    };
 
 private:
     T *arr;
-    unsigned int size;
+    unsigned int _size;
 };
 
-std::ostream &operator<<(std::ostream &o, Array const &infile);
+// std::ostream &operator<<(std::ostream &o, Array const &infile);
+
+#include "Array.tpp"
 
 #endif
